@@ -1,3 +1,5 @@
+package com.xiling.math.Problem;
+
 public abstract class Problem {
 
     private int answer;
@@ -5,7 +7,7 @@ public abstract class Problem {
     public Problem() {
     }
 
-    abstract void display();
+    public abstract void display();
 
     public int getAnswer() {
         return answer;

@@ -1,3 +1,10 @@
+package com.xiling.math.Generator;
+
+import com.xiling.math.Problem.AdditionProblem;
+import com.xiling.math.Problem.DivisionProblem;
+import com.xiling.math.Problem.MultiplicationProblem;
+import com.xiling.math.Problem.Problem;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -45,7 +52,7 @@ public class ProblemGenerator {
     }
 
     public MultiplicationProblem generateMultiplication() {
-        int term1 = 0, term2 = 0;
+        int term1, term2;
         int digit1 = 0, digit2 = 0;
 
         switch (this.difficulty) {
@@ -56,6 +63,13 @@ public class ProblemGenerator {
             case 5 -> {digit1 = 3; digit2 = 4;}
         }
 
+        // Swap Digit order randomly
+        if (digit1 != digit2 && random.nextDouble() < 0.5) {
+            int temp = digit1;
+            digit1 = digit2;
+            digit2 = temp;
+        }
+
         term1 = random.nextInt((int)Math.pow(10, digit1 - 1),
                 (int)Math.pow(10, digit1));
         term2 = random.nextInt((int)Math.pow(10, digit2 - 1),
@@ -64,12 +78,42 @@ public class ProblemGenerator {
         return new MultiplicationProblem(term1, term2);
     }
 
-    public Problem generateRandomProblem() {
-        double rand = random.nextDouble();
-        if (rand < 0.5) return generateAddition();
-        else return generateMultiplication();
+    public DivisionProblem generateDivision() {
+        int answer, denominator;
+        int digit1 = 0, digit2 = 0;
+
+        switch (this.difficulty) {
+            case 1 -> {digit1 = 2; digit2 = 1;}
+            case 2 -> {digit1 = 2; digit2 = 2;}
+            case 3 -> {digit1 = 2; digit2 = 3;}
+            case 4 -> {digit1 = 3; digit2 = 3;}
+            case 5 -> {digit1 = 3; digit2 = 4;}
+        }
+
+        // Swap Digit order randomly
+        if (digit1 != digit2 && random.nextDouble() < 0.5) {
+            int temp = digit1;
+            digit1 = digit2;
+            digit2 = temp;
+        }
+
+        answer = random.nextInt((int)Math.pow(10, digit1 - 1),
+                (int)Math.pow(10, digit1));
+        denominator = random.nextInt((int)Math.pow(10, digit2 - 1),
+                (int)Math.pow(10, digit2));
+
+        return new DivisionProblem(denominator, answer);
     }
 
+    public Problem generateRandomProblem() {
+        double rand = random.nextDouble();
+        if (rand < 0.4) return generateAddition();
+        else if (rand < 0.7) {
+            return generateMultiplication();
+        } else return generateDivision();
+    }
+
+    @SuppressWarnings("unused")
     public int getDifficulty() {
         return difficulty;
     }

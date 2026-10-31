@@ -1,10 +1,12 @@
+package com.xiling.math.Problem;
+
 import java.text.DecimalFormat;
 import java.util.List;
 
 public class AdditionProblem extends Problem {
 
     private final List<Integer> terms;
-    private DecimalFormat df;
+    private final DecimalFormat df;
 
     public AdditionProblem(List<Integer> terms) {
         super();
@@ -22,6 +24,7 @@ public class AdditionProblem extends Problem {
         return total;
     }
 
+    @SuppressWarnings("unused")
     public List<Integer> getTerms() {
         return terms;
     }

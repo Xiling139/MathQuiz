@@ -1,3 +1,5 @@
+package com.xiling.math.Problem;
+
 import java.text.DecimalFormat;
 
 public class MultiplicationProblem extends Problem {
@@ -14,7 +16,7 @@ public class MultiplicationProblem extends Problem {
     }
 
     @Override
-    void display() {
+    public void display() {
         IO.println(String.format("%s", df.format(term1) +
                 " * " + String.format("%s", df.format(term2))));
     }
