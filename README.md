@@ -77,13 +77,13 @@ The answer is 20
 ```
 
 ## Difficulty Mapping
-|Difficulty	|Addition digits	|Multiplication digits|	Division digits|
-|- | - | - | -|
-|1|	1–2|	2 × 1|	2 / 1|
-|2|2–2 |	2 × 2|	2 / 2|
-|3|2–3	|2 × 3	|2 / 3|
-|4|3–4	|3 × 3	|3 / 3|
-|5|	4–5	|3 × 4|	3 / 4|
+| Difficulty	 | Addition digits	 | Multiplication digits | 	Division digits |
+|-------------|------------------|-----------------------|------------------|
+| 1           | 	1–2             | 	2 × 1                | 	2 / 1           |
+| 2           | 2–2              | 	2 × 2                | 	2 / 2           |
+| 3           | 2–3	             | 2 × 3	                | 2 / 3            |
+| 4           | 3–4	             | 3 × 3	                | 3 / 3            |
+| 5           | 	4–5	            | 3 × 4                 | 	3 / 4           |
 
 For multiplication and division, the digit order is randomly swapped, so e.g. difficulty 1 can produce either `2-digit × 1-digit` or `1-digit × 2-digit.`
 
